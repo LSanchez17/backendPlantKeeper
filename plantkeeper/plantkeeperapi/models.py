@@ -4,18 +4,18 @@ from django.db import models
 # migrate if you make changes here 
 class User(models.Model):
     """ User Model """
-    id = ''
-    username = ''
-    email = ''
-    first_name = ''
-    last_name = ''
-    profile_pic_url = ''
-    location = ''
-    password = ''
-    fully_set_up = ''
-    private = ''
-    friend_set = ''
-    friend_requests = ''
+    id = models.CharField(max_length=10, primary_key=True)
+    username = models.CharField(max_length=30)
+    email = models.EmailField()
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    profile_pic_url = models.URLField()
+    location = models.IntegerField()
+    password = models.CharField(max_length=30)
+    fully_set_up = models.BooleanField()
+    private = models.BooleanField()
+    # make a one to many table friends
+    # make a one to many table friend_requests = ''
 
 
 
@@ -25,21 +25,21 @@ class User(models.Model):
 
 class Plants(models.Model):
     """ Plants model """
-    id = ''
-    plant_name = ''
-    plant_birthday = ''
-    last_water = ''
-    last_trim = ''
-    last_repot = ''
-    indoor = ''
-    notes = ''
-    plant_pic = ''
+    id = models.CharField(max_length=10, primary_key=True)
+    plant_name = models.CharField(max_length=50)
+    plant_birthday = models.DateTimeField()
+    last_water = models.DateTimeField()
+    last_trim = models.DateTimeField()
+    last_repot = models.DateTimeField()
+    indoor = models.BooleanField
+    notes = models.TextField()
+    plant_pic = models.TextField()
 
 
 class Weather(models.Model):
     """ Weather model """
 
-    location = ''
-    date = ''
-    forecast = ''
+    location = models.IntegerField()
+    date = models.DateTimeField()
+    forecast = models.TextField()
     
