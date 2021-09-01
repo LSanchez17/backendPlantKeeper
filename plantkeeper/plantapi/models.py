@@ -17,3 +17,13 @@ class Weather(models.Model):
     date = models.DateField()
     forecast = models.TextField()
     user_id = models.ForeignKey()
+
+class Plant(models.Model):
+    id = models.CharField(primary_key=True, max_length=30)
+    plant_name = models.CharField(max_length=30)
+    plant_birthday = models.DateField()
+    last_watered = models.DateField()
+    last_trimmed = models.DateField()
+    last_repotted = models.DateField()
+    indoor = models.BooleanField()
+    user_id = models.ForeignKey()
