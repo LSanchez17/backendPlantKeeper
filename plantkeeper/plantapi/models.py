@@ -12,3 +12,8 @@ class User(models.Model):
     password = models.CharField(max_length=500)
     fully_set_up = models.BooleanField()
 
+class Weather(models.Model):
+    location = models.IntegerField()
+    date = models.DateField()
+    forecast = models.TextField()
+    user_id = models.ForeignKey()
